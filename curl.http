@@ -1,0 +1,5 @@
+curl --request GET \
+  --url 'https://api.sumup.com/authorize?response_type=code&client_id=HqF33Wk9G-N7mcy_W_SjAQ&redirect_uri=https://sumuppy.ddns.net:420'
+
+
+
