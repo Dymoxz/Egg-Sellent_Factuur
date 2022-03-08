@@ -15,7 +15,7 @@ options = Options()
 options.headless = True
 driver = webdriver.Chrome(options=options)
 
-def getTransactions(email, pswd, start_date, end_date, self):
+def getTransactions(email, pswd, start_date, end_date):
     username = email
     password = pswd
 
