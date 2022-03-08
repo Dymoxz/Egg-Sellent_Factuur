@@ -3,6 +3,7 @@ from calendar import week
 import re
 import datetime
 from api import getTransactions
+from calc import calculate
 from pprint import pprint
 from PyInquirer import style_from_dict, Token, prompt
 from email_validator import validate_email, EmailNotValidError
@@ -52,86 +53,61 @@ def weekDates(weeko):
     return saturday, friday
 
 
-questions = [
+sumupQuestions = [
     {
         'type': 'input',
         'name': 'email',
-        'message': 'Voer hier uw Sumup email adres in.',
+        'message': 'Voer hier uw Sumup email adres in: ',
         'validate': EmailValidator
     },
     {
         'type': 'password',
         'name': 'password',
-        'message': 'Voer hier uw Sumup wachtwoord in.'
+        'message': 'Voer hier uw Sumup wachtwoord in: '
     },
     {
         'type': 'input',
         'name': 'week',
-        'message': 'Voer hier het weeknummer in.',
+        'message': 'Voer hier het weeknummer in: ',
+        'validate': NumberValidator,
+        'filter': lambda val: int(val)
+    }
+]
+
+sumupAnswers = prompt(sumupQuestions, style=style)
+saturday = list(weekDates(sumupAnswers["week"]))[0]
+friday = list(weekDates(sumupAnswers["week"]))[1]
+totals = list(getTransactions(sumupAnswers["email"], sumupAnswers["password"], saturday, friday)) # [egg, total, fooi]
+
+
+print('-----Sumup Complete-----')
+
+
+eggQuestions = [
+    {
+        'type': 'input',
+        'name': 'besteld',
+        'message': 'Aantal bestelde eieren: ',
         'validate': NumberValidator,
         'filter': lambda val: int(val)
     },
-    # {
-    #     'type': 'list',
-    #     'name': 'size',
-    #     'message': 'What size do you need?',
-    #     'choices': ['Large', 'Medium', 'Small'],
-    #     'filter': lambda val: val.lower()
-    # },
-    # {
-    #     'type': 'input',
-    #     'name': 'quantity',
-    #     'message': 'How many do you need?',
-    #     'validate': NumberValidator,
-    #     'filter': lambda val: int(val)
-    # },
-    # {
-    #     'type': 'expand',
-    #     'name': 'toppings',
-    #     'message': 'What about the toppings?',
-    #     'choices': [
-    #         {
-    #             'key': 'p',
-    #             'name': 'Pepperoni and cheese',
-    #             'value': 'PepperoniCheese'
-    #         },
-    #         {
-    #             'key': 'a',
-    #             'name': 'All dressed',
-    #             'value': 'alldressed'
-    #         },
-    #         {
-    #             'key': 'w',
-    #             'name': 'Hawaiian',
-    #             'value': 'hawaiian'
-    #         }
-    #     ]
-    # },
-    # {
-    #     'type': 'rawlist',
-    #     'name': 'beverage',
-    #     'message': 'You also get a free 2L beverage',
-    #     'choices': ['Pepsi', '7up', 'Coke']
-    # },
-    # {
-    #     'type': 'input',
-    #     'name': 'comments',
-    #     'message': 'Any comments on your purchase experience?',
-    #     'default': 'Nope, all good!'
-    # },
-    # {
-    #     'type': 'list',
-    #     'name': 'prize',
-    #     'message': 'For leaving a comment, you get a freebie',
-    #     'choices': ['cake', 'fries'],
-    #     'when': lambda answers: answers['comments'] != 'Nope, all good!'
-    # }
+    {
+        'type': 'input',
+        'name': 'overVW',
+        'message': 'Aantal eieren over van vorige week: ',
+        'validate': NumberValidator,
+        'filter': lambda val: int(val)
+    },
+    {
+        'type': 'input',
+        'name': 'overNU',
+        'message': 'Aantal eieren over nu: ',
+        'validate': NumberValidator,
+        'filter': lambda val: int(val)
+    }
 ]
+eggAnswers = prompt(eggQuestions, style=style)
+print(eggAnswers)
 
-answers = prompt(questions, style=style)
-saturday = list(weekDates(answers["week"]))[0]
-friday = list(weekDates(answers["week"]))[1]
-getTransactions(answers["email"], answers["password"], saturday, friday)
+calculate(totals[0], totals[1], totals[2], eggAnswers["besteld"], eggAnswers["overVW"], eggAnswers["overNU"])
 
-#print('Order receipt:')
-#pprint(answers)

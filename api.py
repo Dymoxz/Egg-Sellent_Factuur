@@ -49,7 +49,7 @@ def getTransactions(email, pswd, start_date, end_date):
     url = driver.current_url
     code = url.split('code=')[1]
     #print(url)
-    print('code:  ', code)
+    #print('code:  ', code)
 
 
     accesTokenPost = requests.post('https://api.sumup.com/token', json={"grant_type": "authorization_code",
@@ -58,7 +58,7 @@ def getTransactions(email, pswd, start_date, end_date):
                                                                         "code": code})
     postJson = accesTokenPost.json()
     accessToken = postJson['access_token']
-    print('Access token:  ', accessToken)
+    #print('Access token:  ', accessToken)
 
 
 
@@ -84,7 +84,7 @@ def getTransactions(email, pswd, start_date, end_date):
         if item["status"] == "FAILED":
             transJson["items"].pop(i)
         i+=1
-    print(transListGet.status_code)
+    #print(transListGet.status_code)
     #print(transJson)
 
     Oldsummary = transJson
@@ -116,7 +116,7 @@ def getTransactions(email, pswd, start_date, end_date):
         json.dump(json_string, outfile)
 
 
-    print('kasjdkas',len(allTransComplete))
+   #print('kasjdkas',len(allTransComplete))
 
     # API SHIT COMPLETE
 
@@ -131,21 +131,21 @@ def getTransactions(email, pswd, start_date, end_date):
         curEgg = 0
         curFooi = 0
         for item in transaction["products"]:
-            print(item["name"], item["total_with_vat"])
+            #print(item["name"], item["total_with_vat"])
             if "eieren" in item["name"]:
                 curEgg += item["total_with_vat"]
             if "Fooi" in item["name"]: 
                 curFooi += item["total_with_vat"]
         curTotal = curEgg + curFooi
-        print(curEgg, curFooi, curTotal)
-        print('---------------------')
+        #print(curEgg, curFooi, curTotal)
+        #print('---------------------')
         totalGeld += curTotal
         totalEgg += curEgg
         totalFooi += curFooi
         aasjdkn += 1
-
-    print(aasjdkn)
-    print(totalGeld, totalEgg, totalFooi)
+    return totalEgg, totalGeld, totalFooi
+    #print(aasjdkn)
+    #print(totalGeld, totalEgg, totalFooi)
 
 if __name__ == "__main__":
    # stuff only to run when not called via 'import' here
