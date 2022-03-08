@@ -146,8 +146,6 @@ def getTransactions(email, pswd, start_date, end_date):
 
     print(aasjdkn)
     print(totalGeld, totalEgg, totalFooi)
-    self.totaleGeld.text = totalGeld
-
 
 if __name__ == "__main__":
    # stuff only to run when not called via 'import' here

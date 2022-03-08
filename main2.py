@@ -39,7 +39,7 @@ class NumberValidator(Validator):
                 cursor_position=len(document.text))  # Move cursor to end
 
 
-print('Hi, welcome to Python Pizza')
+print('Hallo, welkom bij de Egg-Sellent auto factuur')
 
 def weekDates(weeko):
     week = weeko
@@ -60,7 +60,7 @@ questions = [
         'validate': EmailValidator
     },
     {
-        'type': 'input',
+        'type': 'password',
         'name': 'password',
         'message': 'Voer hier uw Sumup wachtwoord in.'
     },
@@ -133,5 +133,5 @@ saturday = list(weekDates(answers["week"]))[0]
 friday = list(weekDates(answers["week"]))[1]
 getTransactions(answers["email"], answers["password"], saturday, friday)
 
-print('Order receipt:')
-pprint(answers)
+#print('Order receipt:')
+#pprint(answers)
