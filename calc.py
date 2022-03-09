@@ -1,5 +1,5 @@
-def calculate(totaleEgg, totaleGeld, totaleFooi, besteldo, overeVWo, overNUo):
-    # totalGeld = totaleGeld 
+def calculate(totaleEgg, totaleGeld, totaleFooi, besteldo, overeVWo, overNUo, kapotto):
+    totalGeld = totaleGeld 
     totalEgg = totaleEgg
     totalEgg = round(totalEgg, 2) 
     totalFooi = totaleFooi
@@ -7,10 +7,11 @@ def calculate(totaleEgg, totaleGeld, totaleFooi, besteldo, overeVWo, overNUo):
     eggPrijs = 0.28
 
     besteld = besteldo
+    kapot = kapotto
     overVW = overeVWo
     overNU = overNUo
 
-    verkocht = besteld + overVW - overNU
+    verkocht = besteld + overVW - overNU - kapot
 
     if verkocht < 500:
         provisie = 0.035
@@ -28,9 +29,10 @@ def calculate(totaleEgg, totaleGeld, totaleFooi, besteldo, overeVWo, overNUo):
 
     print(totalEgg, needGeld, teKort)
 
+    totalProvis = verkocht * provisie
     teBetalen = (verkocht * provisie) + totalFooi - teKort
     teBetalen = round(teBetalen, 2)
     print(teBetalen)
-
+    return besteld, overVW, overNU, kapot, verkocht, provisie, totalProvis, totalFooi, totalGeld, teKort
 if __name__ == "__main__":
     calculate()

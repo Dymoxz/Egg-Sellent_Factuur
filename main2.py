@@ -8,6 +8,7 @@ from pprint import pprint
 from PyInquirer import style_from_dict, Token, prompt
 from email_validator import validate_email, EmailNotValidError
 from PyInquirer import Validator, ValidationError
+from Factuur import factuur
 
 
 style = style_from_dict({
@@ -93,6 +94,13 @@ eggQuestions = [
     },
     {
         'type': 'input',
+        'name': 'kapot',
+        'message': 'Aantal kapotte eieren: ',
+        'validate': NumberValidator,
+        'filter': lambda val: int(val)
+    },
+    {
+        'type': 'input',
         'name': 'overVW',
         'message': 'Aantal eieren over van vorige week: ',
         'validate': NumberValidator,
@@ -106,8 +114,12 @@ eggQuestions = [
         'filter': lambda val: int(val)
     }
 ]
+
 eggAnswers = prompt(eggQuestions, style=style)
 print(eggAnswers)
 
-calculate(totals[0], totals[1], totals[2], eggAnswers["besteld"], eggAnswers["overVW"], eggAnswers["overNU"])
+calcList = list(calculate(totals[0], totals[1], totals[2], eggAnswers["besteld"], eggAnswers["overVW"], eggAnswers["overNU"], eggAnswers["kapot"]))
 
+
+
+factuur(calcList[0], calcList[1], calcList[2], calcList[3], calcList[4], calcList[5], calcList[6], calcList[7], calcList[8], calcList[9])

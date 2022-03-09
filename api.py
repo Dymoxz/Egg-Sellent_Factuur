@@ -13,6 +13,7 @@ redirectURL = 'https://sumuppy.ddns.net:420'
 
 options = Options()
 options.headless = True
+options.add_experimental_option('excludeSwitches', ['enable-logging'])
 driver = webdriver.Chrome(options=options)
 
 def getTransactions(email, pswd, start_date, end_date):
