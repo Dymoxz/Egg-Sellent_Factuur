@@ -1,5 +1,5 @@
 from __future__ import print_function, unicode_literals
-from calendar import week
+from calendar import SUNDAY, week
 import re
 import datetime
 from api import getTransactions
@@ -122,4 +122,4 @@ calcList = list(calculate(totals[0], totals[1], totals[2], eggAnswers["besteld"]
 
 
 
-factuur(calcList[0], calcList[1], calcList[2], calcList[3], calcList[4], calcList[5], calcList[6], calcList[7], calcList[8], calcList[9])
+factuur(calcList[0], calcList[1], calcList[2], calcList[3], calcList[4], calcList[5], calcList[6], calcList[7], calcList[8], calcList[9], sumupAnswers["week"], saturday, friday)

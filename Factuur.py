@@ -6,11 +6,18 @@ import time
 time.sleep(1)
 
 # from main import eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi, loon, fooiPin, opbrengstR, teKort
-def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi, loon, fooiPin, opbrengstR, teKort):
+def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi, loon, fooiPin, opbrengstR, teKort, weekNummer, zaterdag, vrijdag):
     img = Image.open("Factuur.jpg")
     draw = ImageDraw.Draw(img)
     # font = ImageFont.truetype(<font-file>, <font-size>)
+    font = ImageFont.truetype("calibri-bold.ttf", 60)
+    #week
+    draw.text((1040, 980),str(weekNummer),(70,70,70),font=font)
+    draw.text((1100, 980),str(zaterdag) + ' /',(70,70,70),font=font)
+    draw.text((1100, 1025),str(vrijdag),(70,70,70),font=font)
+
     font = ImageFont.truetype("calibri-bold.ttf", 75)
+
     # draw.text((x, y),"Sample Text",(r,g,b))
     draw.text((270, 1215),str(eggBesteld),(70,70,70),font=font)
     draw.text((875, 1215),str(eggOverVW),(70,70,70),font=font)
@@ -27,8 +34,9 @@ def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi,
 
     lastLine = str(round(loon, 2) + round(fooiPin, 2)) + '  -  ' + str(teKort) + '  =  ' + str((round(loon, 2) + round(fooiPin, 2)) - teKort)
     draw.text((1175, 1905),lastLine,(70,70,70),font=font)
-    cashUitleg = str(teKort) + '  =   Cash / Tikkie'
-    draw.text((1600, 1792),cashUitleg,(70,70,70),font=font)
+    if teKort > 0:
+        cashUitleg = str(teKort) + '  =   Cash / Tikkie'
+        draw.text((1600, 1792),cashUitleg,(70,70,70),font=font)
     img.save('Factuur-out.jpg')
 
 if __name__ == "__main__":
