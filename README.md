@@ -4,7 +4,7 @@
 ![image](https://user-images.githubusercontent.com/82333980/157761532-f301d2e4-6c8f-4609-a7d8-0232f05a7f86.png)  
 ![sumup-logo](https://user-images.githubusercontent.com/82333980/157762192-4b512ab9-cd21-4a8e-8d9d-a58739b1874a.png)
 
->Egg-Sellent Auto Factuur is een python programma om je Loon automatisch uit te rekenen, en een factuur voor Egg-Sellent te genereren
+>Egg-Sellent Auto Factuur is een python programma om je loon automatisch uit te rekenen, en een factuur voor Egg-Sellent te genereren
 
 ## Installatie
 
