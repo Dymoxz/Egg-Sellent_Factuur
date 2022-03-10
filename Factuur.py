@@ -2,6 +2,7 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw 
 import time
+import json
 
 time.sleep(1)
 
@@ -9,7 +10,18 @@ time.sleep(1)
 def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi, loon, fooiPin, opbrengstR, teKort, weekNummer, zaterdag, vrijdag):
     img = Image.open("Factuur.jpg")
     draw = ImageDraw.Draw(img)
+
+    info = json.load(open(('info.json'), 'r'))
     # font = ImageFont.truetype(<font-file>, <font-size>)
+
+    font = ImageFont.truetype("calibri-bold.ttf", 50)
+
+    draw.text((850, 490),str(info["name"]),(70,70,70),font=font)
+    draw.text((850, 590),str(info["adress"]),(70,70,70),font=font)
+    draw.text((850, 690),str(info["postcode/wp"]),(70,70,70),font=font)
+    draw.text((850, 790),str(info["rekening"]),(70,70,70),font=font)
+
+
     font = ImageFont.truetype("calibri-bold.ttf", 60)
     #week
     draw.text((1040, 980),str(weekNummer),(70,70,70),font=font)
@@ -37,7 +49,7 @@ def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi,
     if teKort > 0:
         cashUitleg = str(teKort) + '  =   Cash / Tikkie'
         draw.text((1600, 1792),cashUitleg,(70,70,70),font=font)
-    img.save('Factuur-out.jpg')
+    img.save(f'Week-{str(weekNummer)}.jpg')
 
 if __name__ == "__main__":
     factuur()

@@ -13,6 +13,7 @@ def calculate(totaleEgg, totaleGeld, totaleFooi, besteldo, overeVWo, overNUo, ka
 
     verkocht = besteld + overVW - overNU - kapot
 
+    #bepaal de provisie aan de hand van het aantal verkochte eieren
     if verkocht < 500:
         provisie = 0.035
     elif verkocht >= 500 and verkocht <= 999:
@@ -27,12 +28,12 @@ def calculate(totaleEgg, totaleGeld, totaleFooi, besteldo, overeVWo, overNUo, ka
     teKort = needGeld - totalEgg
     teKort = round(teKort, 2)
 
-    print(totalEgg, needGeld, teKort)
+    #print(totalEgg, needGeld, teKort)
 
     totalProvis = verkocht * provisie
     teBetalen = (verkocht * provisie) + totalFooi - teKort
     teBetalen = round(teBetalen, 2)
-    print(teBetalen)
+    #print(teBetalen)
     return besteld, overVW, overNU, kapot, verkocht, provisie, totalProvis, totalFooi, totalGeld, teKort
 if __name__ == "__main__":
     calculate()

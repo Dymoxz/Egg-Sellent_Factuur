@@ -1,6 +1,4 @@
 from __future__ import print_function, unicode_literals
-from calendar import SUNDAY, week
-import re
 import datetime
 from api import getTransactions
 from calc import calculate
@@ -43,6 +41,8 @@ class NumberValidator(Validator):
 
 print('Hallo, welkom bij de Egg-Sellent auto factuur')
 
+
+#krijg de data van zaterdag/vrijdag aan de hand van het weeknummer
 def weekDates(weeko):
     week = weeko
     d1 = "2022-W" + str(int(week) - 1)
@@ -94,15 +94,15 @@ eggQuestions = [
     },
     {
         'type': 'input',
-        'name': 'kapot',
-        'message': 'Aantal kapotte eieren: ',
+        'name': 'overVW',
+        'message': 'Aantal eieren over van vorige week: ',
         'validate': NumberValidator,
         'filter': lambda val: int(val)
     },
     {
         'type': 'input',
-        'name': 'overVW',
-        'message': 'Aantal eieren over van vorige week: ',
+        'name': 'kapot',
+        'message': 'Aantal kapotte eieren: ',
         'validate': NumberValidator,
         'filter': lambda val: int(val)
     },
@@ -116,10 +116,13 @@ eggQuestions = [
 ]
 
 eggAnswers = prompt(eggQuestions, style=style)
-print(eggAnswers)
+#print(eggAnswers)
 
+
+#bereken de loon, provisie etc.
 calcList = list(calculate(totals[0], totals[1], totals[2], eggAnswers["besteld"], eggAnswers["overVW"], eggAnswers["overNU"], eggAnswers["kapot"]))
 
-
-
+#zet alle data op het factuur
 factuur(calcList[0], calcList[1], calcList[2], calcList[3], calcList[4], calcList[5], calcList[6], calcList[7], calcList[8], calcList[9], sumupAnswers["week"], saturday, friday)
+
+print('-----Factuur gegenereerd-----')
