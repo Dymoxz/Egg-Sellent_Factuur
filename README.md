@@ -6,4 +6,3 @@
      2. Verander de gegevens in dit bestand
      3. Open main.exe
 
-> Heb je problemen ofzo boeit me niet
