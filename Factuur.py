@@ -13,8 +13,8 @@ def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi,
     font = ImageFont.truetype("calibri-bold.ttf", 60)
     #week
     draw.text((1040, 980),str(weekNummer),(70,70,70),font=font)
-    draw.text((1100, 980),str(zaterdag) + ' /',(70,70,70),font=font)
-    draw.text((1100, 1025),str(vrijdag),(70,70,70),font=font)
+    draw.text((1120, 980),str(zaterdag) + ' /',(70,70,70),font=font)
+    draw.text((1120, 1025),str(vrijdag),(70,70,70),font=font)
 
     font = ImageFont.truetype("calibri-bold.ttf", 75)
 
