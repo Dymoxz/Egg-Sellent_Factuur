@@ -1,3 +1,4 @@
+
 # Egg-sellent Auto Factuur
 
 >Egg-sellent Auto Factuur is een python programma om je egg-sellent facturen automatisch uit te rekenen
@@ -27,6 +28,11 @@
 
 ## Contributie
 > Pas de code aan en maak een pull request
+
+## TO DO
+> 1. Er voor zorgen dat je je account op kan slaan, i.p.v. elke keer in moeten voeren
+> 2. Mogelijk meerdere accounts op kunnen slaan(?)
+> 3. Heel misschien een web app maken
 
 ## Licentie
 [MIT](https://choosealicense.com/licenses/mit/)
