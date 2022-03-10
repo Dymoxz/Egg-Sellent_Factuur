@@ -1,9 +1,28 @@
-# Egg-Sellent_Factuur
+# Egg-sellent Auto Factuur
 
-## Hoe te gebruiken:
-     1. Open Data/info.json
-     2. Verander de gegevens in dit bestand
-     3. Open main.exe
+>Egg-sellent Auto Factuur is een python programma om je egg-sellent facturen automatisch uit te rekenen
 
-> ![egg-sellent
-> logo](https://www.barundrecht-team315.nl/wp-content/uploads/2021/03/Egg-Sellent_logo-e1617196877403.png)
+## Installatie
+
+>1. Open ./Data/info.json
+>2. Pas de onderstaande gegevens
+```json
+{
+    "name": "Naam Achternaam",
+    "adress": "Straat 69",
+    "postcode/wp": "0000AA Stad",
+    "rekening": "NL00BANK1234567890"
+}
+
+```
+
+## Gebruik
+
+> Run de main.exe
+
+
+## Contributie
+> Pas de code aan en maak een pull request
+
+## Licentie
+[MIT](https://choosealicense.com/licenses/mit/)
