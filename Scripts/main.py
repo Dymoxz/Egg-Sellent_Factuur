@@ -1,12 +1,15 @@
 from __future__ import print_function, unicode_literals
 import datetime
+
 from api import getTransactions
 from calc import calculate
+from Factuur import factuur
+
 from pprint import pprint
 from PyInquirer import style_from_dict, Token, prompt
 from email_validator import validate_email, EmailNotValidError
 from PyInquirer import Validator, ValidationError
-from Factuur import factuur
+
 
 
 style = style_from_dict({
