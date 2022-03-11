@@ -36,7 +36,7 @@
 ## Bugs
 > Als de console gelijk crashed ligt het waarschijnlijk aan "chromedriver.exe", om dit te voorkomen / op te lossen volg de volgende stappen:
 > 1. Download van [ChromeDriver - WebDriver for Chrome (chromium.org)](https://chromedriver.chromium.org/) de versie die overeen komt met uw versie van chrome
-> 2. Vervang de huidige chromedriver.exe met het nieuwe gedownloadde bestand
+> 2. Vervang de huidige chromedriver.exe (./Scripts/chromedriver.exe) met het nieuwe gedownloadde bestand
 
 ## Contributie
 > Stuur mij een bericht of maak een pull request
