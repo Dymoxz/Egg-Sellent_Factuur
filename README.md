@@ -29,6 +29,7 @@
 ### Voorbeeld:
 
 ![eggVoorbeel](https://user-images.githubusercontent.com/82333980/157862923-fcc18eb8-ef77-4a1f-8231-dc127167682d.png)
+![rsz_1rsz_1week-10](https://user-images.githubusercontent.com/82333980/157864918-4daeed5e-25fc-4d98-be0c-a07633445847.jpg)
 
 
 
