@@ -5,6 +5,7 @@ import requests
 from requests.structures import CaseInsensitiveDict
 import time
 import json
+import sys, os
 
 clientID = 'ZK3NWDD0xencY-DFAJ6Ulg'
 clientSecret = '56a987f382d00f80b93d2d318f85d75d'
@@ -15,7 +16,11 @@ redirectURL = 'https://sumuppy.ddns.net:420'
 options = Options()
 options.headless = True
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
-driver = webdriver.Chrome('/Scripts/chromedriver.exe', options=options)
+if getattr(sys, 'frozen', False): 
+    # executed as a bundled exe, the driver is in the extracted folder
+    chromedriver_path = os.path.join(sys._MEIPASS, "chromedriver.exe")
+
+    driver = webdriver.Chrome(chromedriver_path, options=options)
 
 def getTransactions(email, pswd, start_date, end_date):
     username = email
@@ -98,8 +103,8 @@ def getTransactions(email, pswd, start_date, end_date):
 
     json_string = {"items": allTransComplete}
 
-    with open('Data/CompleteTrans.json', 'w') as outfile:
-        json.dump(json_string, outfile)
+    # with open('Data/CompleteTrans.json', 'w') as outfile:
+    #    json.dump(json_string, outfile)
 
 
     # API COMPLETE
