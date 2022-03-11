@@ -22,7 +22,15 @@
 
 ## Gebruik
 
-> Run de main.exe
+> 1. Start "main.exe"
+> 2. Vul alle gegevens in (Het inloggen duurt ± 45 seconden, als het programma crashed na deze tijd is waarschijnlijk het  wachtwoord verkeerd ingevuld)
+> 3. Het gegenereerde factuur staat in "./Facturen"
+
+### Voorbeeld:
+
+![eggVoorbeel](https://user-images.githubusercontent.com/82333980/157862923-fcc18eb8-ef77-4a1f-8231-dc127167682d.png)
+
+
 
 ## Bugs
 > Als de console gelijk crashed ligt het waarschijnlijk aan "chromedriver.exe", om dit te voorkomen / op te lossen volg de volgende stappen:
