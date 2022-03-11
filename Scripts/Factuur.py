@@ -6,7 +6,6 @@ import json
 
 time.sleep(1)
 
-# from main import eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi, loon, fooiPin, opbrengstR, teKort
 def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi, loon, fooiPin, opbrengstR, teKort, weekNummer, zaterdag, vrijdag):
     img = Image.open("Images/Factuur.jpg")
     draw = ImageDraw.Draw(img)
@@ -16,6 +15,7 @@ def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi,
 
     font = ImageFont.truetype("Data/calibri-bold.ttf", 50)
 
+    #Add the personal info
     draw.text((850, 490),str(info["name"]),(70,70,70),font=font)
     draw.text((850, 590),str(info["adress"]),(70,70,70),font=font)
     draw.text((850, 690),str(info["postcode/wp"]),(70,70,70),font=font)
@@ -30,7 +30,7 @@ def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi,
 
     font = ImageFont.truetype("Data/calibri-bold.ttf", 75)
 
-    # draw.text((x, y),"Sample Text",(r,g,b))
+
     draw.text((270, 1215),str(eggBesteld),(70,70,70),font=font)
     draw.text((875, 1215),str(eggOverVW),(70,70,70),font=font)
     draw.text((2060, 1215),str(eggBesteld + eggOverVW),(70,70,70),font=font)

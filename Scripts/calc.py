@@ -33,7 +33,7 @@ def calculate(totaleEgg, totaleGeld, totaleFooi, besteldo, overeVWo, overNUo, ka
     totalProvis = verkocht * provisie
     teBetalen = (verkocht * provisie) + totalFooi - teKort
     teBetalen = round(teBetalen, 2)
-    #print(teBetalen)
+
     return besteld, overVW, overNU, kapot, verkocht, provisie, totalProvis, totalFooi, totalGeld, teKort
 if __name__ == "__main__":
     calculate()

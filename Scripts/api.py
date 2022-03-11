@@ -11,6 +11,7 @@ clientSecret = '56a987f382d00f80b93d2d318f85d75d'
 redirectURL = 'https://sumuppy.ddns.net:420'
 
 
+#Chrome driver options
 options = Options()
 options.headless = True
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
@@ -25,7 +26,7 @@ def getTransactions(email, pswd, start_date, end_date):
     driver.get(getClientID)
 
     time.sleep(2)
-
+    #Enter the username and password for authentication
     inputElement = driver.find_element_by_id("username")
     inputElement.send_keys(username)
     print('Username entered...')
@@ -49,18 +50,14 @@ def getTransactions(email, pswd, start_date, end_date):
     time.sleep(4)
     url = driver.current_url
     code = url.split('code=')[1]
-    #print(url)
-    #print('code:  ', code)
 
-
+    #Post the access token and recieve an authorization code
     accesTokenPost = requests.post('https://api.sumup.com/token', json={"grant_type": "authorization_code",
                                                                         "client_id": clientID,
                                                                         "client_secret": clientSecret,
                                                                         "code": code})
     postJson = accesTokenPost.json()
     accessToken = postJson['access_token']
-    #print('Access token:  ', accessToken)
-
 
 
 
@@ -73,53 +70,39 @@ def getTransactions(email, pswd, start_date, end_date):
     headers = CaseInsensitiveDict()
     headers["Authorization"] = f"Bearer {accessToken}"
 
+    #Get a dictonary with all transactions between start_date & end_date
     transListGet =  requests.get('https://api.sumup.com/v0.1/me/transactions/history',headers=headers, params={ "oldest_time": start_date,
                                                                                                 "newest_time": end_date,
-                                                                                                "limit": 500
+                                                                                                "limit": 1000
                                                                                                 })
 
     transJson = transListGet.json()
 
+    #Remove the failed transactions from the dict
     i=0
     for item in transJson["items"]:
         if item["status"] == "FAILED":
             transJson["items"].pop(i)
         i+=1
-    #print(transListGet.status_code)
-    #print(transJson)
 
     Oldsummary = transJson
-    # i=0
-    # for item in summary["items"]:
-    #     try:
-    #         print(item["product_summary"])
-    #     except:
-    #         noSummary.update(item)
-    #         summary["items"].pop(i)
-    #     i+=1
-
-    summary = [x for  x in Oldsummary["items"] if "product_summary" in x]
-    noSummary = [x for  x in Oldsummary["items"] if "product_summary" not in x]
-    noSummaryFixed = []
 
     allTrans = [x for x in Oldsummary["items"]]
 
     allTransComplete = []
 
+    #Get a more detailed transaction for everythin in dict
     for trans in allTrans:
         allTransGet =  requests.get('https://api.sumup.com/v0.1/me/transactions',headers=headers, params={ "id": trans["id"]})
         allTransComplete.append(allTransGet.json())
 
-    #print(allTransComplete)
     json_string = {"items": allTransComplete}
 
     with open('Data/CompleteTrans.json', 'w') as outfile:
         json.dump(json_string, outfile)
 
 
-   #print('kasjdkas',len(allTransComplete))
-
-    # API SHIT COMPLETE
+    # API COMPLETE
 
 
     totalGeld = 0
@@ -132,22 +115,16 @@ def getTransactions(email, pswd, start_date, end_date):
         curEgg = 0
         curFooi = 0
         for item in transaction["products"]:
-            #print(item["name"], item["total_with_vat"])
             if "eieren" in item["name"]:
                 curEgg += item["total_with_vat"]
             if "Fooi" in item["name"]: 
                 curFooi += item["total_with_vat"]
         curTotal = curEgg + curFooi
-        #print(curEgg, curFooi, curTotal)
-        #print('---------------------')
         totalGeld += curTotal
         totalEgg += curEgg
         totalFooi += curFooi
         aasjdkn += 1
     return totalEgg, totalGeld, totalFooi
-    #print(aasjdkn)
-    #print(totalGeld, totalEgg, totalFooi)
 
 if __name__ == "__main__":
-   # stuff only to run when not called via 'import' here
    getTransactions()
