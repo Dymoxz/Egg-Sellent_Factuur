@@ -39,7 +39,7 @@
 > 2. Vervang de huidige chromedriver.exe met het nieuwe gedownloadde bestand
 
 ## Contributie
-> Pas de code aan en maak een pull request
+> Stuur mij een bericht of maak een pull request
 
 ## TO DO
 > 1. Er voor zorgen dat je je account op kan slaan, i.p.v. elke keer in moeten voeren
