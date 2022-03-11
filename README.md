@@ -22,7 +22,7 @@
 
 ## Gebruik
 
-> 1. Start "main.exe"
+> 1. Start "AutoFactuur.exe"
 > 2. Vul alle gegevens in (Het inloggen duurt ± 45 seconden, als het programma crashed na deze tijd is waarschijnlijk het  wachtwoord verkeerd ingevuld)
 > 3. Het gegenereerde factuur staat in "./Facturen"
 
