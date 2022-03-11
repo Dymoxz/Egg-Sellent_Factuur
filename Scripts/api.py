@@ -101,7 +101,7 @@ def getTransactions(email, pswd, start_date, end_date):
         allTransGet =  requests.get('https://api.sumup.com/v0.1/me/transactions',headers=headers, params={ "id": trans["id"]})
         allTransComplete.append(allTransGet.json())
 
-    json_string = {"items": allTransComplete}
+    #json_string = {"items": allTransComplete}
 
     # with open('Data/CompleteTrans.json', 'w') as outfile:
     #    json.dump(json_string, outfile)
