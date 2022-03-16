@@ -124,9 +124,9 @@ eggAnswers = prompt(eggQuestions, style=style)
 
 #bereken de loon, provisie etc.
 calcList = list(calculate(totals[0], totals[1], totals[2], eggAnswers["besteld"], eggAnswers["overVW"], eggAnswers["overNU"], eggAnswers["kapot"]))
-
+print()
 print('-----Gegevens berenkend-----')
-
+print()
 
 teKortQuestions = [
     {
@@ -139,18 +139,23 @@ teKortQuestions = [
             'Cash/Tikkie',
             {
                 'name': 'Custom',
-                'disabled': 'Unavailable at this time'
+                'disabled': 'Niet beschikbaar'
             },
             'Exit'
         ]
     }
-]
+]   
+#   teKort
+if calcList[9] > 0: 
+    teKortAnswers = prompt(teKortQuestions, style=style)
+#print((teKortAnswers))
 
-teKortAnswers = prompt(teKortQuestions, style=style)
-print((teKortAnswers))
+if teKortAnswers["teKortBeschrijving"] == 'Exit':
+    exit()
+
 
 #zet alle data op het factuur
 #       eggBesteld,  eggOverVW,    eggOverNu,   eggKapot,   eggVerkocht, provisieEi,    loon,       fooiPin,    opbrengstR,   teKort,         weekNummer,       zaterdag, vrijdag
 factuur(calcList[0], calcList[1], calcList[2], calcList[3], calcList[4], calcList[5], calcList[6], calcList[7], calcList[8], calcList[9], sumupAnswers["week"], saturday, friday, teKortAnswers["teKortBeschrijving"])
-
+print()
 print('-----Factuur gegenereerd-----')
