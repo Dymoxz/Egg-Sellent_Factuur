@@ -28,9 +28,8 @@
 
 ### Voorbeeld:
 
-![eggVoorbeel](https://user-images.githubusercontent.com/82333980/157862923-fcc18eb8-ef77-4a1f-8231-dc127167682d.png)
-![rsz_1rsz_1week-10](https://user-images.githubusercontent.com/82333980/157864918-4daeed5e-25fc-4d98-be0c-a07633445847.jpg)
-
+![image](https://user-images.githubusercontent.com/82333980/158627887-f6597b4a-c30a-439e-8edc-60597ab3777b.png)
+![rsz_1rsz_2week-10](https://user-images.githubusercontent.com/82333980/158628757-2e216b8e-33e9-40a7-842e-087f415324c9.jpg)
 
 
 ## Bugs
