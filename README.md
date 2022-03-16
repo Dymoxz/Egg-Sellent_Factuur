@@ -18,7 +18,8 @@
     "rekening": "NL00BANK1234567890"
 }
 ```
-> Volg voor de zekerheid de stappen in [Bugs](#Bugs)
+> V̶o̶l̶g̶ ̶v̶o̶o̶r̶ ̶d̶e̶ ̶z̶e̶k̶e̶r̶h̶e̶i̶d̶ ̶d̶e̶ ̶s̶t̶a̶p̶p̶e̶n̶ ̶i̶n̶ [B̶u̶g̶s̶](#Bugs)
+> Het probleem in [Bugs](#Bugs) is hoogstwaarschijnlijk gefixed
 
 ## Gebruik
 
