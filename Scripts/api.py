@@ -21,6 +21,8 @@ if getattr(sys, 'frozen', False):
     chromedriver_path = os.path.join(sys._MEIPASS, "chromedriver.exe")
 
     driver = webdriver.Chrome(chromedriver_path, options=options)
+else:
+    driver = webdriver.Chrome('Scripts\chromedriver.exe', options=options)
 
 def getTransactions(email, pswd, start_date, end_date):
     username = email

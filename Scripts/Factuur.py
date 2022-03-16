@@ -6,7 +6,7 @@ import json
 
 time.sleep(1)
 
-def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi, loon, fooiPin, opbrengstR, teKort, weekNummer, zaterdag, vrijdag):
+def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi, loon, fooiPin, opbrengstR, teKort, weekNummer, zaterdag, vrijdag, teKortB):
     img = Image.open("Images/Factuur.jpg")
     draw = ImageDraw.Draw(img)
 
@@ -47,7 +47,7 @@ def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi,
     lastLine = str(round(loon, 2) + round(fooiPin, 2)) + '  -  ' + str(teKort) + '  =  ' + str((round(loon, 2) + round(fooiPin, 2)) - teKort)
     draw.text((1175, 1905),lastLine,(70,70,70),font=font)
     if teKort > 0:
-        cashUitleg = str(teKort) + '  =   Cash / Tikkie'
+        cashUitleg = str(teKort) + f'  =  {teKortB}'
         draw.text((1600, 1792),cashUitleg,(70,70,70),font=font)
     img.save(f'Facturen/Week-{str(weekNummer)}.jpg')
 
