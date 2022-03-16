@@ -159,3 +159,6 @@ if teKortAnswers["teKortBeschrijving"] == 'Exit':
 factuur(calcList[0], calcList[1], calcList[2], calcList[3], calcList[4], calcList[5], calcList[6], calcList[7], calcList[8], calcList[9], sumupAnswers["week"], saturday, friday, teKortAnswers["teKortBeschrijving"])
 print()
 print('-----Factuur gegenereerd-----')
+print()
+print(f'Locatie:  "Facturen/Week-{str(sumupAnswers["week"])}.jpg"')
+input()
