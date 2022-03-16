@@ -45,6 +45,3 @@
 > 1. Er voor zorgen dat je je account op kan slaan, i.p.v. elke keer in moeten voeren
 > 2. Mogelijk meerdere accounts op kunnen slaan(?)
 > 3. Heel misschien een web app maken
-
-## Licentie
-[MIT](https://choosealicense.com/licenses/mit/)
