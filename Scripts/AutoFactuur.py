@@ -148,15 +148,18 @@ teKortQuestions = [
 #   teKort
 if calcList[9] > 0: 
     teKortAnswers = prompt(teKortQuestions, style=style)
+    teKortBeschrijving = teKortAnswers["teKortBeschrijving"]
+else:
+    teKortBeschrijving = None
 #print((teKortAnswers))
 
-if teKortAnswers["teKortBeschrijving"] == 'Exit':
+if teKortBeschrijving == 'Exit':
     exit()
 
 
 #zet alle data op het factuur
 #       eggBesteld,  eggOverVW,    eggOverNu,   eggKapot,   eggVerkocht, provisieEi,    loon,       fooiPin,    opbrengstR,   teKort,         weekNummer,       zaterdag, vrijdag
-factuur(calcList[0], calcList[1], calcList[2], calcList[3], calcList[4], calcList[5], calcList[6], calcList[7], calcList[8], calcList[9], sumupAnswers["week"], saturday, friday, teKortAnswers["teKortBeschrijving"])
+factuur(calcList[0], calcList[1], calcList[2], calcList[3], calcList[4], calcList[5], calcList[6], calcList[7], calcList[8], calcList[9], sumupAnswers["week"], saturday, friday, teKortBeschrijving)
 print()
 print('-----Factuur gegenereerd-----')
 print()
