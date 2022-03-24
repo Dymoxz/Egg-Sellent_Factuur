@@ -135,10 +135,10 @@ def getTransactions(email, pswd, start_date, end_date):
     #     else:
     #         pass
 
-    json_string = {"items": allTransComplete}
+    # json_string = {"items": allTransComplete}
 
-    with open('Data/CompleteTrans.json', 'w') as outfile:
-       json.dump(json_string, outfile)
+    # with open('Data/CompleteTrans.json', 'w') as outfile:
+    #    json.dump(json_string, outfile)
 
 
     # API COMPLETE
