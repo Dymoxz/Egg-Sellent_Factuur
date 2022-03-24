@@ -78,19 +78,22 @@ def getTransactions(email, pswd, start_date, end_date):
     headers["Authorization"] = f"Bearer {accessToken}"
 
     #Get a dictonary with all transactions between start_date & end_date
-    transListGet =  requests.get('https://api.sumup.com/v0.1/me/transactions/history',headers=headers, params={ "oldest_time": start_date,
+    transListGet =  requests.get('https://api.sumup.com/v0.1/me/transactions/history',headers=headers, params={
+                                                                                                "oldest_time": start_date,
                                                                                                 "newest_time": end_date,
-                                                                                                "limit": 1000
+                                                                                                "limit": 1000                                                                       
                                                                                                 })
 
     transJson = transListGet.json()
+    # print(transJson)
+    # print(transListGet.status_code)
 
-    #Remove the failed transactions from the dict
-    i=0
-    for item in transJson["items"]:
-        if item["status"] == "FAILED":
-            transJson["items"].pop(i)
-        i+=1
+    # #Remove the failed transactions from the dict
+    # i=0
+    # for item in transJson["items"]:
+    #     if item["status"] == "FAILED":
+    #         transJson["items"].pop(i)
+    #     i+=1
 
     Oldsummary = transJson
 
@@ -98,15 +101,20 @@ def getTransactions(email, pswd, start_date, end_date):
 
     allTransComplete = []
 
+    nonoStatus = []
+
     #Get a more detailed transaction for everythin in dict
     for trans in allTrans:
-        allTransGet =  requests.get('https://api.sumup.com/v0.1/me/transactions',headers=headers, params={ "id": trans["id"]})
-        allTransComplete.append(allTransGet.json())
+        if trans["status"] != "FAILED":
+            allTransGet =  requests.get('https://api.sumup.com/v0.1/me/transactions',headers=headers, params={ "id": trans["id"]})
+            allTransComplete.append(allTransGet.json())
+        else:
+            pass
 
-    #json_string = {"items": allTransComplete}
+    json_string = {"items": allTransComplete}
 
-    # with open('Data/CompleteTrans.json', 'w') as outfile:
-    #    json.dump(json_string, outfile)
+    with open('Data/CompleteTrans.json', 'w') as outfile:
+       json.dump(json_string, outfile)
 
 
     # API COMPLETE
