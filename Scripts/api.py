@@ -6,6 +6,8 @@ from requests.structures import CaseInsensitiveDict
 import time
 import json
 import sys, os
+import aiohttp
+import asyncio
 
 clientID = 'ZK3NWDD0xencY-DFAJ6Ulg'
 clientSecret = '56a987f382d00f80b93d2d318f85d75d'
@@ -32,7 +34,7 @@ def getTransactions(email, pswd, start_date, end_date):
 
     driver.get(getClientID)
 
-    time.sleep(2)
+    time.sleep(1)
     #Enter the username and password for authentication
     inputElement = driver.find_element_by_id("username")
     inputElement.send_keys(username)
@@ -54,7 +56,7 @@ def getTransactions(email, pswd, start_date, end_date):
         print('Already Authorized.')
         pass
 
-    time.sleep(4)
+    time.sleep(2)
     url = driver.current_url
     code = url.split('code=')[1]
 
@@ -77,6 +79,8 @@ def getTransactions(email, pswd, start_date, end_date):
     headers = CaseInsensitiveDict()
     headers["Authorization"] = f"Bearer {accessToken}"
 
+    accesso = f"Bearer {accessToken}"
+
     #Get a dictonary with all transactions between start_date & end_date
     transListGet =  requests.get('https://api.sumup.com/v0.1/me/transactions/history',headers=headers, params={
                                                                                                 "oldest_time": start_date,
@@ -94,7 +98,6 @@ def getTransactions(email, pswd, start_date, end_date):
     #     if item["status"] == "FAILED":
     #         transJson["items"].pop(i)
     #     i+=1
-
     Oldsummary = transJson
 
     allTrans = [x for x in Oldsummary["items"]]
@@ -103,13 +106,34 @@ def getTransactions(email, pswd, start_date, end_date):
 
     nonoStatus = []
 
-    #Get a more detailed transaction for everythin in dict
-    for trans in allTrans:
-        if trans["status"] != "FAILED":
-            allTransGet =  requests.get('https://api.sumup.com/v0.1/me/transactions',headers=headers, params={ "id": trans["id"]})
-            allTransComplete.append(allTransGet.json())
-        else:
-            pass
+    detailUrl = 'https://api.sumup.com/v0.1/me/transactions'
+   
+
+    def get_tasks(session):
+        tasks = []
+        for trans in allTrans:
+            data1 = {"id": trans["id"]}
+            if trans["status"] != "FAILED":
+                tasks.append(session.get(detailUrl, headers=headers, data=data1, ssl=False))
+            else:
+                pass
+        return tasks
+
+    async def get_detailed_trans():
+        async with aiohttp.ClientSession() as session:
+            tasks = get_tasks(session)
+            responses = await asyncio.gather(*tasks)
+            for response in responses:
+                allTransComplete.append(await response.json())
+
+    asyncio.run(get_detailed_trans())
+    # #Get a more detailed transaction for everythin in dict
+    # for trans in allTrans:
+    #     if trans["status"] != "FAILED":
+    #         allTransGet =  requests.get('https://api.sumup.com/v0.1/me/transactions',headers=headers, params={ "id": trans["id"]})
+    #         allTransComplete.append(allTransGet.json())
+    #     else:
+    #         pass
 
     json_string = {"items": allTransComplete}
 

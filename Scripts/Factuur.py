@@ -44,7 +44,7 @@ def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi,
 
     draw.text((1190, 1800),str(round(opbrengstR, 2)),(70,70,70),font=font)
 
-    lastLine = str(round(loon, 2) + round(fooiPin, 2)) + '  -  ' + str(teKort) + '  =  ' + str(round((round(loon, 2) + round(fooiPin, 2)) - teKort), 2)
+    lastLine = str(round(loon, 2) + round(fooiPin, 2)) + '  -  ' + str(teKort) + '  =  ' + str((round(loon, 2) + round(fooiPin, 2)) - round(teKort,2))
     draw.text((1175, 1905),lastLine,(70,70,70),font=font)
     if teKort > 0:
         cashUitleg = str(teKort) + f'  =  {teKortB}'
