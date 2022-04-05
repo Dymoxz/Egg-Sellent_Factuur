@@ -30,12 +30,10 @@ def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi,
 
     font = ImageFont.truetype("Data/calibri-bold.ttf", 75)
 
-    #rond alle bedragen af op 2 decimalen
     loon = round(loon, 2)
     fooiPin = round(fooiPin, 2)
     teKort = round(teKort, 2)
     opbrengstR = round(opbrengstR, 2)
-
 
     draw.text((270, 1215),str(eggBesteld),(70,70,70),font=font)
     draw.text((875, 1215),str(eggOverVW),(70,70,70),font=font)
@@ -50,8 +48,7 @@ def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi,
 
     draw.text((1190, 1800),str(opbrengstR),(70,70,70),font=font)
 
-
-    lastLine = str(loon + fooiPin) + '  -  ' + str(teKort) + '  =  ' + str(round(loon + fooiPin - teKort, 2))
+    lastLine = str(round(loon + fooiPin, 2)) + '  -  ' + str(teKort) + '  =  ' + str(round(loon + fooiPin - teKort, 2))
     draw.text((1175, 1905),lastLine,(70,70,70),font=font)
     if teKort > 0:
         cashUitleg = str(teKort) + f'  =  {teKortB}'

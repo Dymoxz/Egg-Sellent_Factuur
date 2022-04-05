@@ -4,6 +4,7 @@ calc.py
 Factuur.py
 font.ttf
 info.json
+item_names.json
 Factuur.jpg
 icon.png
 

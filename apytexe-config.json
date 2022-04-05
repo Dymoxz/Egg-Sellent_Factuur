@@ -1,0 +1,109 @@
+{
+ "version": "auto-py-to-exe-configuration_v1",
+ "pyinstallerOptions": [
+  {
+   "optionDest": "noconfirm",
+   "value": true
+  },
+  {
+   "optionDest": "filenames",
+   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Scripts/AutoFactuur.py"
+  },
+  {
+   "optionDest": "onefile",
+   "value": true
+  },
+  {
+   "optionDest": "console",
+   "value": true
+  },
+  {
+   "optionDest": "icon_file",
+   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Images/icon.ico"
+  },
+  {
+   "optionDest": "ascii",
+   "value": false
+  },
+  {
+   "optionDest": "clean_build",
+   "value": false
+  },
+  {
+   "optionDest": "strip",
+   "value": false
+  },
+  {
+   "optionDest": "noupx",
+   "value": false
+  },
+  {
+   "optionDest": "disable_windowed_traceback",
+   "value": false
+  },
+  {
+   "optionDest": "embed_manifest",
+   "value": true
+  },
+  {
+   "optionDest": "uac_admin",
+   "value": false
+  },
+  {
+   "optionDest": "uac_uiaccess",
+   "value": false
+  },
+  {
+   "optionDest": "win_private_assemblies",
+   "value": false
+  },
+  {
+   "optionDest": "win_no_prefer_redirects",
+   "value": false
+  },
+  {
+   "optionDest": "bootloader_ignore_signals",
+   "value": false
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Images/Factuur.jpg;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Images/icon.png;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Scripts/api.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Scripts/calc.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Scripts/Factuur.py;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Data/calibri-bold.ttf;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Data/info.json;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Data/item_names.json;."
+  },
+  {
+   "optionDest": "binaries",
+   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Scripts/chromedriver.exe;."
+  }
+ ],
+ "nonPyinstallerOptions": {
+  "increaseRecursionLimit": true,
+  "manualArguments": ""
+ }
+}

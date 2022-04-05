@@ -130,9 +130,9 @@ def getTransactions(email, pswd, start_date, end_date):
         curEgg = 0
         curFooi = 0
         for item in transaction["products"]:
-            if "eieren" in item["name"]:
+            if "eieren" in item["name"] or "Eieren" in item["name"]:
                 curEgg += item["total_with_vat"]
-            if "Fooi" in item["name"]: 
+            if "Fooi" in item["name"] or 'fooi' in item["name"]: 
                 curFooi += item["total_with_vat"]
         curTotal = curEgg + curFooi
         totalGeld += curTotal

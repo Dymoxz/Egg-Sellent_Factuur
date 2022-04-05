@@ -10,9 +10,7 @@ from PyInquirer import style_from_dict, Token, prompt
 from email_validator import validate_email, EmailNotValidError
 from PyInquirer import Validator, ValidationError
 
-from colorama import init
-from termcolor import cprint 
-from pyfiglet import figlet_format
+
 
 style = style_from_dict({
     Token.QuestionMark: '#E91E63 bold',
@@ -42,11 +40,6 @@ class NumberValidator(Validator):
             raise ValidationError(
                 message='Please enter a number',
                 cursor_position=len(document.text))  # Move cursor to end
-
-
-cprint(figlet_format('EGG-SELLENT', font='small'),
-       'cyan', attrs=['bold'])
-
 
 
 print('Hallo, welkom bij de Egg-Sellent auto factuur')
