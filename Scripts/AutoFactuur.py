@@ -83,9 +83,9 @@ saturday = list(weekDates(sumupAnswers["week"]))[0]
 friday = list(weekDates(sumupAnswers["week"]))[1]
 totals = list(getTransactions(sumupAnswers["email"], sumupAnswers["password"], saturday, friday)) # [egg, total, fooi]
 
-
+print()
 print('-----Sumup Complete-----')
-
+print()
 
 eggQuestions = [
     {
