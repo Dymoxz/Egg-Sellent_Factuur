@@ -42,6 +42,4 @@
 > Stuur mij een bericht of maak een pull request
 
 ## TO DO
-> 1. Er voor zorgen dat je je account op kan slaan, i.p.v. elke keer in moeten voeren
-> 2. Mogelijk meerdere accounts op kunnen slaan(?)
-> 3. Heel misschien een web app maken
+> 1. Omzetten in een webapp
