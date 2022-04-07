@@ -22,10 +22,10 @@
 > Het probleem in [Bugs](#Bugs) is hoogstwaarschijnlijk gefixed
 
 ## Gebruik
-
-> 1. Start "AutoFactuur.exe"
-> 2. Vul alle gegevens in (Het inloggen duurt ± 45 seconden (afhankelijk van het aantal transacties kan dit langer duren), als het programma crashed na deze tijd is waarschijnlijk het  wachtwoord verkeerd ingevuld)
-> 3. Het gegenereerde factuur staat in "./Facturen"
+> 1. Zorg er voor dat je internet aan staat
+> 2. Start "AutoFactuur.exe"
+> 3. Vul alle gegevens in (Het inloggen duurt ± 45 seconden (afhankelijk van het aantal transacties kan dit langer duren), als het programma crashed na deze tijd is waarschijnlijk het  wachtwoord verkeerd ingevuld)
+> 4. Het gegenereerde factuur staat in "./Facturen"
 
 ### Voorbeeld:
 
