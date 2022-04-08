@@ -9,6 +9,8 @@ from pprint import pprint
 from PyInquirer import style_from_dict, Token, prompt
 from email_validator import validate_email, EmailNotValidError
 from PyInquirer import Validator, ValidationError
+import pyfiglet
+from colorama import Fore, Back, Style
 
 
 
@@ -41,8 +43,10 @@ class NumberValidator(Validator):
                 message='Please enter a number',
                 cursor_position=len(document.text))  # Move cursor to end
 
-
-print('Hallo, welkom bij de Egg-Sellent auto factuur')
+welcome = pyfiglet.figlet_format("Egg-Sellent", font = "standard"  )
+print(Fore.CYAN + welcome)
+print(Fore.WHITE)
+# print('Hallo, welkom bij de Egg-Sellent auto factuur')
 
 
 #krijg de data van zaterdag/vrijdag aan de hand van het weeknummer
