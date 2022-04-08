@@ -7,7 +7,7 @@
   },
   {
    "optionDest": "filenames",
-   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Scripts/AutoFactuur.py"
+   "value": "C:/Users/Dymo/Desktop/PYTHON/EGG-SELLENT/Egg-Sellent_Factuur/Scripts/AutoFactuur.py"
   },
   {
    "optionDest": "onefile",
@@ -19,7 +19,7 @@
   },
   {
    "optionDest": "icon_file",
-   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Images/icon.ico"
+   "value": "C:/Users/Dymo/Desktop/PYTHON/EGG-SELLENT/Egg-Sellent_Factuur/Images/icon.ico"
   },
   {
    "optionDest": "ascii",
@@ -67,39 +67,39 @@
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Images/Factuur.jpg;."
+   "value": "C:/Users/Dymo/Desktop/PYTHON/EGG-SELLENT/Egg-Sellent_Factuur/Images/Factuur.jpg;."
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Images/icon.png;."
+   "value": "C:/Users/Dymo/Desktop/PYTHON/EGG-SELLENT/Egg-Sellent_Factuur/Images/icon.png;."
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Scripts/api.py;."
+   "value": "C:/Users/Dymo/Desktop/PYTHON/EGG-SELLENT/Egg-Sellent_Factuur/Scripts/api.py;."
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Scripts/calc.py;."
+   "value": "C:/Users/Dymo/Desktop/PYTHON/EGG-SELLENT/Egg-Sellent_Factuur/Scripts/calc.py;."
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Scripts/Factuur.py;."
+   "value": "C:/Users/Dymo/Desktop/PYTHON/EGG-SELLENT/Egg-Sellent_Factuur/Scripts/Factuur.py;."
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Data/calibri-bold.ttf;."
+   "value": "C:/Users/Dymo/Desktop/PYTHON/EGG-SELLENT/Egg-Sellent_Factuur/Data/calibri-bold.ttf;."
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Data/info.json;."
+   "value": "C:/Users/Dymo/Desktop/PYTHON/EGG-SELLENT/Egg-Sellent_Factuur/Data/info.json;."
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Data/item_names.json;."
+   "value": "C:/Users/Dymo/Desktop/PYTHON/EGG-SELLENT/Egg-Sellent_Factuur/Data/item_names.json;."
   },
   {
    "optionDest": "binaries",
-   "value": "C:/Users/Dymo/Desktop/Egg-Sellent_Factuur-1.3 - kopie/Scripts/chromedriver.exe;."
+   "value": "C:/Users/Dymo/Desktop/PYTHON/EGG-SELLENT/Egg-Sellent_Factuur/Scripts/chromedriver.exe;."
   }
  ],
  "nonPyinstallerOptions": {
