@@ -4,13 +4,11 @@ import datetime
 from api import getTransactions
 from calc import calculate
 from Factuur import factuur
-
 from pprint import pprint
 from PyInquirer import style_from_dict, Token, prompt
 from email_validator import validate_email, EmailNotValidError
 from PyInquirer import Validator, ValidationError
-import pyfiglet
-from colorama import Fore, Back, Style
+from colorama import Fore
 
 
 
