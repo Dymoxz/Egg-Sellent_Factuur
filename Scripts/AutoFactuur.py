@@ -43,8 +43,15 @@ class NumberValidator(Validator):
                 message='Please enter a number',
                 cursor_position=len(document.text))  # Move cursor to end
 
-welcome = pyfiglet.figlet_format("Egg-Sellent", font = "standard"  )
-print(Fore.CYAN + welcome)
+
+print(Fore.CYAN + """
+  _____                 ____       _ _            _   
+ | ____|__ _  __ _     / ___|  ___| | | ___ _ __ | |_ 
+ |  _| / _` |/ _` |____\___ \ / _ \ | |/ _ \ '_ \| __|
+ | |__| (_| | (_| |_____|__) |  __/ | |  __/ | | | |_ 
+ |_____\__, |\__, |    |____/ \___|_|_|\___|_| |_|\__|
+       |___/ |___/                                    
+ """)
 print(Fore.WHITE)
 # print('Hallo, welkom bij de Egg-Sellent auto factuur')
 
