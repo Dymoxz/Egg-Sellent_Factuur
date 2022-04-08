@@ -29,7 +29,7 @@
 
 ### Voorbeeld:
 
-![image](https://user-images.githubusercontent.com/82333980/158627887-f6597b4a-c30a-439e-8edc-60597ab3777b.png)
+![image](https://user-images.githubusercontent.com/82333980/162535510-130fee31-3702-468d-919c-90c4f7433e4e.png)
 ![rsz_1rsz_2week-10](https://user-images.githubusercontent.com/82333980/158628757-2e216b8e-33e9-40a7-842e-087f415324c9.jpg)
 
 
