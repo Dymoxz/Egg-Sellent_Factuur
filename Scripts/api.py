@@ -13,6 +13,7 @@ import sys, os
 from datetime import datetime
 import aiohttp
 import asyncio
+from tqdm import tqdm
 clientID = 'cc_classic_0kJ7gzKMcbtqpQMDmoegJTScAv75z'
 clientSecret = 'cc_sk_classic_QnEiqnA4VQR2UPWpJtbOuPJWwzcYbo9hV8dvGsSl7q1DfbuKWs'
 redirectURL = 'https://cakeeatergames.github.io/ThisButtonDoesNothing/index.html'
@@ -40,39 +41,50 @@ def getTransactions(email, pswd, start_date, end_date):
     getClientID = f'https://api.sumup.com/authorize?response_type=code&client_id={clientID}&redirect_uri={redirectURL}'
 
     driver.get(getClientID)
+    print()
+    with tqdm(total=4, colour='cyan',  bar_format='{l_bar}{bar:25}{r_bar}{bar:-10b}') as loginBar:
+        #Enter the username and password for authentication
+        
+        inputElement = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.ID, "username")))
+        inputElement.send_keys(username)
+        loginBar.update(1)
+        loginBar.set_postfix({'actie': 'Email ingevoerd'})
 
-    #Enter the username and password for authentication
-    
-    inputElement = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.ID, "username")))
-    inputElement.send_keys(username)
-    print('Username entered...')
-    inputElement = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.ID, "password")))
-    inputElement.send_keys(password)
-    print('Password entered...')
-    confirm = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.ID, "login-button")))
-    confirm.click()
-    print('Logging in complete.')
-    try:
-        machtig = WebDriverWait(driver, 1).until(EC.visibility_of_element_located((By.XPATH, "//button[text()=' Machtigen ']")))
-        machtig.click()
-    except TimeoutException:
-        pass
+        inputElement = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.ID, "password")))
+        inputElement.send_keys(password)
+        loginBar.update(1)
+        loginBar.set_postfix({'actie': 'Wachtwoord ingevoerd'})
 
-    # try:
-    #     machtig = driver.find_element_by_xpath("//button[text()=' Machtigen ']")
-    #     machtig.click()
-    #     print('Authorization Complete.')
-    # except NoSuchElementException:
-    #     print('Already Authorized.')
-    #     pass
+        confirm = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.ID, "login-button")))
+        confirm.click()
+        loginBar.update(1)
+        loginBar.set_postfix({'actie': 'Ingelogd'})
 
-    try:
-        uselessButton = WebDriverWait(driver, 1).until(EC.element_to_be_clickable((By.NAME, "button")))
-        uselessButton.click()
-        print('Authorization complete.')
-    except TimeoutException:
-        print('Loggin in Failed..')
-        exit()
+        try:
+            machtig = WebDriverWait(driver, 1).until(EC.visibility_of_element_located((By.XPATH, "//button[text()=' Machtigen ']")))
+            machtig.click()
+        except TimeoutException:
+            pass
+
+        # try:
+        #     machtig = driver.find_element_by_xpath("//button[text()=' Machtigen ']")
+        #     machtig.click()
+        #     print('Authorization Complete.')
+        # except NoSuchElementException:
+        #     print('Already Authorized.')
+        #     pass
+
+        try:
+            uselessButton = WebDriverWait(driver, 1).until(EC.element_to_be_clickable((By.NAME, "button")))
+            uselessButton.click()
+            loginBar.update(1)
+            loginBar.set_postfix({'actie': 'Authorizatie gelukt'})
+
+        except TimeoutException:
+            print('Loggin in Failed..')
+            exit()
+    print() 
+    print('Ingloggen..')
     url = driver.current_url
     code = url.split('code=')[1]
 
@@ -122,24 +134,32 @@ def getTransactions(email, pswd, start_date, end_date):
     nonoStatus = []
 
     #Get a more detailed transaction for everythin in dict
+    realTransLen = 0
+    for trans in allTrans:
+        if trans["status"] != "FAILED":
+            realTransLen += 1
+        else:
+            pass
 
-
-
-
+    
 
 
     start_time = time.time()
+    print()
+    print('Transacties Ophalen..')
 
     async def main():
-
+        # apigetter = Progress().add_task("[cyan]Cooking...", total=realTransLen)
         async with aiohttp.ClientSession() as session:
-
-            for trans in allTrans:
+            transWprogress = tqdm(allTrans, bar_format='{l_bar}{bar:25}{r_bar}{bar:-10b}', colour='cyan')
+            for trans in transWprogress:
+                transWprogress.set_postfix({'transaction code': trans["transaction_code"]})
                 pokemon_url = 'https://api.sumup.com/v0.1/me/transactions'
                 if trans["status"] != "FAILED":
                     async with session.get(pokemon_url, headers=headers, params={ "id": trans["id"]}) as resp:
                         detailTrans = await resp.json()
                         allTransComplete.append(detailTrans)
+                    # Progress().update(apigetter, advance=1)
                 else:
                     pass
     
