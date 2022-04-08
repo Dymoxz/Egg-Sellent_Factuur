@@ -42,23 +42,24 @@ def getTransactions(email, pswd, start_date, end_date):
 
     driver.get(getClientID)
     print()
+    print('Ingloggen..')
     with tqdm(total=4, colour='cyan',  bar_format='{l_bar}{bar:25}{r_bar}{bar:-10b}') as loginBar:
         #Enter the username and password for authentication
         
         inputElement = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.ID, "username")))
         inputElement.send_keys(username)
         loginBar.update(1)
-        loginBar.set_postfix({'actie': 'Email ingevoerd'})
+        loginBar.set_postfix({'actie': 'Email invoeren'})
 
         inputElement = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.ID, "password")))
         inputElement.send_keys(password)
         loginBar.update(1)
-        loginBar.set_postfix({'actie': 'Wachtwoord ingevoerd'})
+        loginBar.set_postfix({'actie': 'Wachtwoord invoeren'})
 
         confirm = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.ID, "login-button")))
         confirm.click()
         loginBar.update(1)
-        loginBar.set_postfix({'actie': 'Ingelogd'})
+        loginBar.set_postfix({'actie': 'Inloggen'})
 
         try:
             machtig = WebDriverWait(driver, 1).until(EC.visibility_of_element_located((By.XPATH, "//button[text()=' Machtigen ']")))
@@ -78,13 +79,12 @@ def getTransactions(email, pswd, start_date, end_date):
             uselessButton = WebDriverWait(driver, 1).until(EC.element_to_be_clickable((By.NAME, "button")))
             uselessButton.click()
             loginBar.update(1)
-            loginBar.set_postfix({'actie': 'Authorizatie gelukt'})
+            loginBar.set_postfix({'actie': 'Authoriseren'})
 
         except TimeoutException:
-            print('Loggin in Failed..')
+            print('Inloggen mislukt..')
             exit()
-    print() 
-    print('Ingloggen..')
+
     url = driver.current_url
     code = url.split('code=')[1]
 
