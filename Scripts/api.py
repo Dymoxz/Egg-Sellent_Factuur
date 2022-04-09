@@ -154,9 +154,9 @@ def getTransactions(email, pswd, start_date, end_date):
             transWprogress = tqdm(allTrans, bar_format='{l_bar}{bar:25}{r_bar}{bar:-10b}', colour='cyan')
             for trans in transWprogress:
                 transWprogress.set_postfix({'transaction code': trans["transaction_code"]})
-                pokemon_url = 'https://api.sumup.com/v0.1/me/transactions'
+                sumup_url = 'https://api.sumup.com/v0.1/me/transactions'
                 if trans["status"] != "FAILED":
-                    async with session.get(pokemon_url, headers=headers, params={ "id": trans["id"]}) as resp:
+                    async with session.get(sumup_url, headers=headers, params={ "id": trans["id"]}) as resp:
                         detailTrans = await resp.json()
                         allTransComplete.append(detailTrans)
                     # Progress().update(apigetter, advance=1)
