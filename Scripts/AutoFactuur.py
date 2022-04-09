@@ -4,12 +4,10 @@ import datetime
 from api import getTransactions
 from calc import calculate
 from Factuur import factuur
-from pprint import pprint
 from PyInquirer import style_from_dict, Token, prompt
 from email_validator import validate_email, EmailNotValidError
 from PyInquirer import Validator, ValidationError
-from colorama import Fore
-
+from termcolor import cprint
 
 
 style = style_from_dict({
@@ -42,15 +40,14 @@ class NumberValidator(Validator):
                 cursor_position=len(document.text))  # Move cursor to end
 
 
-print(Fore.CYAN + """
+cprint("""
   _____                 ____       _ _            _   
  | ____|__ _  __ _     / ___|  ___| | | ___ _ __ | |_ 
  |  _| / _` |/ _` |____\___ \ / _ \ | |/ _ \ '_ \| __|
  | |__| (_| | (_| |_____|__) |  __/ | |  __/ | | | |_ 
  |_____\__, |\__, |    |____/ \___|_|_|\___|_| |_|\__|
        |___/ |___/                                    
- """)
-print(Fore.WHITE)
+ """, 'cyan')
 # print('Hallo, welkom bij de Egg-Sellent auto factuur')
 
 
