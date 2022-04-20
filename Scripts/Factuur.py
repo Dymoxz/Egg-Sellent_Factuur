@@ -37,7 +37,7 @@ def factuur(eggBesteld, eggOverVW, eggOverNu, eggKapot, eggVerkocht, provisieEi,
 
     draw.text((270, 1215),str(eggBesteld),(70,70,70),font=font)
     draw.text((875, 1215),str(eggOverVW),(70,70,70),font=font)
-    draw.text((2060, 1215),str(eggBesteld + eggOverVW),(70,70,70),font=font)
+    draw.text((2060, 1215),str(eggBesteld + eggOverVW - eggKapot),(70,70,70),font=font)
     draw.text((1550, 1215),str(eggKapot),(70,70,70),font=font)
     draw.text((1060, 1375),str(eggOverNu),(70,70,70),font=font)
     draw.text((575, 1575),str(eggVerkocht),(70,70,70),font=font)
