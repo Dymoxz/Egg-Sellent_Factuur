@@ -24,7 +24,7 @@
 ## Gebruik
 > 1. Zorg er voor dat je internet aan staat
 > 2. Start "AutoFactuur.exe"
-> 3. Vul alle gegevens in (Het inloggen duurt ± 45 seconden (afhankelijk van het aantal transacties kan dit langer duren), als het programma crashed na deze tijd is waarschijnlijk het  wachtwoord verkeerd ingevuld)
+> 3. Vul alle gegevens in (Het ophalen van de transacties duurt ± 15 seconden (afhankelijk van het aantal transacties kan dit langer duren), als het programma blijft hangen na het inloggen is waarschijnlijk het  wachtwoord verkeerd ingevuld)
 > 4. Het gegenereerde factuur staat in "./Facturen"
 
 ### Voorbeeld:
