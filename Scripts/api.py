@@ -42,7 +42,7 @@ def getTransactions(email, pswd, start_date, end_date):
 
     driver.get(getClientID)
     print()
-    print('Ingloggen..')
+    print('Inloggen..')
     with tqdm(total=4, colour='cyan',  bar_format='{l_bar}{bar:25}{r_bar}{bar:-10b}') as loginBar:
         #Enter the username and password for authentication
         
